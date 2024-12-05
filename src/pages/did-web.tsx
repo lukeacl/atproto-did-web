@@ -443,7 +443,7 @@ const DIDWeb = () => {
               To create an account we'll need some extra information. For now
               use a temporary password which you can change later. It's going to
               be shown in plain text and provided to you again later in plain
-              text so don't use something super secret.'
+              text so don't use something super secret.
             </p>
             <div class="form">
               <div class="form-group">
