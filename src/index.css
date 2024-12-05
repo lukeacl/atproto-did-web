@@ -68,10 +68,10 @@ footer .credit {
 }
 
 .form-button {
-    @apply w-full px-4 py-2
+    @apply px-4 py-2
         text-white font-medium text-sm text-center
         bg-blue-700 hover:bg-blue-800
         focus:ring-4 focus:outline-none focus:ring-blue-300
         rounded
-        sm:w-auto;
+        w-auto;
 }

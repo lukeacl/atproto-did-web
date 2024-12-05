@@ -1,7 +1,7 @@
 {
   "name": "atproto-did-web",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -17,6 +17,7 @@
     "uint8arrays": "^5.1.0"
   },
   "devDependencies": {
+    "@types/node": "^22.10.1",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.16",

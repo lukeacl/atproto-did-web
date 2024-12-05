@@ -114,6 +114,7 @@ const DIDWeb = () => {
     if (email().trim() === "") return showError("You must specify your email.");
     if (password().trim() === "")
       return showError("You must specify a password.");
+    if (accessJWT() !== "" && refreshJWT() !== "") return setStep(step() + 1);
     try {
       const header = JSON.stringify({
         alg: "ES256K",
@@ -297,10 +298,15 @@ const DIDWeb = () => {
               reset the process.
             </p>
             <div class="form">
-              <div class="text-right">
-                <button class="form-button" onClick={() => setStep(step() + 1)}>
-                  Next
-                </button>
+              <div class="flex">
+                <div class="text-right flex-grow">
+                  <button
+                    class="form-button"
+                    onClick={() => setStep(step() + 1)}
+                  >
+                    Next
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -332,16 +338,26 @@ const DIDWeb = () => {
                   }
                 />
               </div>
-              <div class="text-right">
-                {privateKey() === "" ? (
-                  <button class="form-button" onClick={generatePrivateKey}>
-                    Generate
+              <div class="flex">
+                <div class="text-left flex-grow">
+                  <button
+                    class="form-button"
+                    onClick={() => setStep(step() - 1)}
+                  >
+                    Back
                   </button>
-                ) : (
-                  <button class="form-button" onClick={validatePrivateKey}>
-                    Next
-                  </button>
-                )}
+                </div>
+                <div class="text-right flex-grow">
+                  {privateKey() === "" ? (
+                    <button class="form-button" onClick={generatePrivateKey}>
+                      Generate
+                    </button>
+                  ) : (
+                    <button class="form-button" onClick={validatePrivateKey}>
+                      Next
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
           </div>
@@ -402,10 +418,20 @@ const DIDWeb = () => {
                   }
                 />
               </div>
-              <div class="text-right">
-                <button class="form-button" onClick={validateIdentity}>
-                  Next
-                </button>
+              <div class="flex">
+                <div class="text-left flex-grow">
+                  <button
+                    class="form-button"
+                    onClick={() => setStep(step() - 1)}
+                  >
+                    Back
+                  </button>
+                </div>
+                <div class="text-right flex-grow">
+                  <button class="form-button" onClick={validateIdentity}>
+                    Next
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -427,10 +453,20 @@ const DIDWeb = () => {
                 </p>
                 <pre>{didFile()}</pre>
               </div>
-              <div class="text-right">
-                <button class="form-button" onClick={validateDIDFile}>
-                  Next
-                </button>
+              <div class="flex">
+                <div class="text-left flex-grow">
+                  <button
+                    class="form-button"
+                    onClick={() => setStep(step() - 1)}
+                  >
+                    Back
+                  </button>
+                </div>
+                <div class="text-right flex-grow">
+                  <button class="form-button" onClick={validateDIDFile}>
+                    Next
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -525,10 +561,20 @@ const DIDWeb = () => {
                   readOnly={true}
                 />
               </div>
-              <div class="text-right">
-                <button class="form-button" onClick={createAccount}>
-                  Next
-                </button>
+              <div class="flex">
+                <div class="text-left flex-grow">
+                  <button
+                    class="form-button"
+                    onClick={() => setStep(step() - 1)}
+                  >
+                    Back
+                  </button>
+                </div>
+                <div class="text-right flex-grow">
+                  <button class="form-button" onClick={createAccount}>
+                    Next
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -556,13 +602,23 @@ const DIDWeb = () => {
                     </p>
                     <pre>{updatedDIDFile()}</pre>
                   </div>
-                  <div class="text-right">
-                    <button
-                      class="form-button"
-                      onClick={validateUpdatedDIDFile}
-                    >
-                      Next
-                    </button>
+                  <div class="flex">
+                    <div class="text-left flex-grow">
+                      <button
+                        class="form-button"
+                        onClick={() => setStep(step() - 1)}
+                      >
+                        Back
+                      </button>
+                    </div>
+                    <div class="text-right flex-grow">
+                      <button
+                        class="form-button"
+                        onClick={validateUpdatedDIDFile}
+                      >
+                        Next
+                      </button>
+                    </div>
                   </div>
                 </>
               )}
@@ -578,10 +634,20 @@ const DIDWeb = () => {
                 Everything should be in place to activate your account for use.
                 Cross your fingers and hit next.
               </p>
-              <div class="text-right">
-                <button class="form-button" onClick={activateAccount}>
-                  Next
-                </button>
+              <div class="flex">
+                <div class="text-left flex-grow">
+                  <button
+                    class="form-button"
+                    onClick={() => setStep(step() - 1)}
+                  >
+                    Back
+                  </button>
+                </div>
+                <div class="text-right flex-grow">
+                  <button class="form-button" onClick={activateAccount}>
+                    Next
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -646,6 +712,13 @@ const DIDWeb = () => {
                 value={password()}
                 readOnly={true}
               />
+            </div>
+            <div class="flex">
+              <div class="text-left flex-grow">
+                <button class="form-button" onClick={() => setStep(step() - 1)}>
+                  Back
+                </button>
+              </div>
             </div>
           </div>
         )}

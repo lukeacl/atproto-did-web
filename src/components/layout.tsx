@@ -11,11 +11,14 @@ const Layout: ParentComponent = (props) => {
         </header>
         <main>{props.children}</main>
         <footer>
-          <div class="credit">
-            💕{" "}
-            <a target="_blank" href="https://bsky.app/profile/lukeacl.com">
-              @lukeacl.com
-            </a>
+          <div class="credit flex">
+            <div class="text-left flex-grow">
+              💕{" "}
+              <a target="_blank" href="https://bsky.app/profile/lukeacl.com">
+                @lukeacl.com
+              </a>{" "}
+              - v{__APP_VERSION__}
+            </div>
           </div>
         </footer>
       </div>
