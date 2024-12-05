@@ -4,6 +4,8 @@ import { createEffect, createSignal } from "solid-js";
 import {} from "solid-js";
 import * as ui8 from "uint8arrays";
 
+import fileSolid from "../assets/file-solid.svg";
+
 const DIDWeb = () => {
   const [showDebug] = createSignal(false);
   const [skipDIDFileChecks] = createSignal(false);
@@ -87,12 +89,13 @@ const DIDWeb = () => {
 
   const validateDIDFile = async (event: Event) => {
     event.preventDefault();
+    if (skipDIDFileChecks() === true) return setStep(step() + 1);
     try {
       const response = await fetch(didFileLocation());
       const json = await response.json();
       const didFileMatches =
         JSON.stringify(json) == JSON.stringify(JSON.parse(didFile()));
-      if (didFileMatches === false && skipDIDFileChecks() === false)
+      if (didFileMatches === false)
         return showError(
           "DID file validation failed. Check its contents and try again.",
         );
@@ -225,12 +228,13 @@ const DIDWeb = () => {
 
   const validateUpdatedDIDFile = async (event: Event) => {
     event.preventDefault();
+    if (skipDIDFileChecks() === true) return setStep(step() + 1);
     try {
       const response = await fetch(didFileLocation());
       const json = await response.json();
       const didFileMatches =
         JSON.stringify(json) == JSON.stringify(JSON.parse(updatedDIDFile()));
-      if (didFileMatches === false && skipDIDFileChecks() === false)
+      if (didFileMatches === false)
         return showError(
           "Updated DID file validation failed. Check its contents and try again.",
         );
@@ -446,7 +450,8 @@ const DIDWeb = () => {
             </p>
             <div class="form">
               <div class="form-group">
-                <p class="font-xs text-sky-700 mb-1">
+                <p class="font-xs text-sky-700 mb-1 flex opacity-50">
+                  <img src={fileSolid} width="10" height="10" class="mr-2" />
                   <a target="_blank" href={didFileLocation()}>
                     {didFileLocation()}
                   </a>
@@ -595,7 +600,13 @@ const DIDWeb = () => {
               ) : (
                 <>
                   <div class="form-group">
-                    <p class="font-xs text-sky-700 mb-1">
+                    <p class="font-xs text-sky-700 mb-1 flex opacity-50">
+                      <img
+                        src={fileSolid}
+                        width="10"
+                        height="10"
+                        class="mr-2"
+                      />
                       <a target="_blank" href={didFileLocation()}>
                         {didFileLocation()}
                       </a>

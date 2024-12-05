@@ -1,6 +1,7 @@
 import { ParentComponent } from "solid-js";
 
-//relative z-10 mx-auto flex min-h-dvh max-w-xl flex-col-reverse
+import blueskyBrandsSolid from "../assets/bluesky-brands-solid.svg";
+import githubBrandsSolid from "../assets/github-brands-solid.svg";
 
 const Layout: ParentComponent = (props) => {
   return (
@@ -12,13 +13,30 @@ const Layout: ParentComponent = (props) => {
         <main>{props.children}</main>
         <footer>
           <div class="credit flex">
-            <div class="text-left flex-grow">
-              💕{" "}
+            <div class="text-left flex-grow flex">
+              <img
+                src={blueskyBrandsSolid}
+                width="14"
+                height="14"
+                class="mr-1"
+              />{" "}
               <a target="_blank" href="https://bsky.app/profile/lukeacl.com">
                 @lukeacl.com
               </a>{" "}
-              - v{__APP_VERSION__}
+              <img
+                src={githubBrandsSolid}
+                width="14"
+                height="14"
+                class="ml-1 mr-1"
+              />{" "}
+              <a
+                target="_blank"
+                href="https://github.com/lukeacl/atproto-did-web"
+              >
+                lukeacl/atproto-did-web
+              </a>
             </div>
+            <div class="text-right flex-grow">v{__APP_VERSION__}</div>
           </div>
         </footer>
       </div>
