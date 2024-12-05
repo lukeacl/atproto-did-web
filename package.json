@@ -1,0 +1,27 @@
+{
+  "name": "atproto-did-web",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "preinstall": "npx only-allow pnpm"
+  },
+  "dependencies": {
+    "@atproto/api": "^0.13.18",
+    "@atproto/crypto": "^0.4.2",
+    "@solidjs/router": "^0.15.1",
+    "solid-js": "^1.9.3",
+    "uint8arrays": "^5.1.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.16",
+    "typescript": "~5.6.2",
+    "vite": "^6.0.1",
+    "vite-plugin-solid": "^2.11.0"
+  }
+}

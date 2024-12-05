@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Yusei+Magic&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    @apply min-h-dvh bg-slate-100 text-gray-800;
+    font-family: "Open Sans", sans-serif;
+}
+
+header,
+main {
+    @apply mb-4;
+}
+
+h1 {
+    @apply text-xl font-medium;
+}
+
+h2 {
+    @apply text-lg font-semibold;
+}
+
+h3 {
+    @apply text-sm font-medium text-gray-400;
+}
+
+h4 {
+    @apply text-sm font-medium;
+}
+
+pre {
+    @apply text-xs font-mono bg-slate-100 p-2 text-wrap rounded;
+}
+
+section header {
+    @apply pb-1 border-b-2;
+}
+
+section main {
+    @apply pb-4 border-b-2;
+}
+
+section main h4 {
+    @apply mb-2;
+}
+
+footer .credit {
+    @apply text-xs opacity-50;
+}
+
+.form-group {
+    @apply mb-2;
+}
+
+.form-label {
+    @apply block
+        text-sm font-semibold mb-1;
+}
+
+.form-input {
+    @apply block w-full p-2
+        bg-gray-50
+        border border-gray-300 rounded
+        text-gray-900 text-sm
+        focus:ring-blue-500 focus:border-blue-500;
+}
+
+.form-button {
+    @apply w-full px-4 py-2
+        text-white font-medium text-sm text-center
+        bg-blue-700 hover:bg-blue-800
+        focus:ring-4 focus:outline-none focus:ring-blue-300
+        rounded
+        sm:w-auto;
+}
