@@ -8,7 +8,7 @@ import fileSolid from "../assets/file-solid.svg";
 
 const DIDWeb = () => {
   const [showDebug] = createSignal(false);
-  const [skipDIDFileChecks] = createSignal(false);
+  const [skipDIDFileChecks, setSkipDIDFileChecks] = createSignal(false);
   const [step, setStep] = createSignal(1);
 
   const showError = (message: string) => {
@@ -268,7 +268,12 @@ const DIDWeb = () => {
   return (
     <section>
       <header>
-        <h2>did:web</h2>
+        <h2
+          onClick={() => setSkipDIDFileChecks(!skipDIDFileChecks())}
+          style={{ "text-decoration": skipDIDFileChecks() ? "underline" : "" }}
+        >
+          did:web
+        </h2>
         <h3>setup a did:web for use on ATProto</h3>
       </header>
       <main>
