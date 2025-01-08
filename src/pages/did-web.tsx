@@ -562,7 +562,7 @@ const DIDWeb = () => {
                   id="dnsValue"
                   class="form-input font-mono"
                   autocorrect="off"
-                  value={`did=did:web:${handle()}`}
+                  value={`did=did:web:${domain()}`}
                   readOnly={true}
                 />
               </div>
