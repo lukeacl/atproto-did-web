@@ -699,7 +699,7 @@ const DIDWeb = () => {
                 id="did"
                 class="form-input font-mono"
                 autocorrect="off"
-                value={`did:web:${handle()}`}
+                value={`did:web:${domain()}`}
                 readOnly={true}
               />
             </div>
